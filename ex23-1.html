@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ex23-1</title>
+  <style>
+    h1 {
+      color: magenta;
+    }
+  </style>
+  <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <story></story>
+    <story></story>
+    <story></story>
+  </div>
+  <script>
+    Vue.component('story', {
+      template: '<h1>I am great!<h1>'
+    })
+    new Vue({
+      el: '.container'
+    })
+  </script>
+</body>
+
+</html>
