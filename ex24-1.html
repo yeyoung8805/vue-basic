@@ -3,19 +3,15 @@
 
 <head>
   <meta charset="utf-8">
-  <title>ex23-3</title>
+  <title>ex24-1</title>
   <style>
     h2 {
-      color: blue;
-    }
-
-    span {
-      font-weight: bold;
+      color: magenta;
     }
 
     .my-comp {
       width: 200px;
-      color: magenta;
+      color: red;
       font-size: 1.2em;
       text-align: center;
       background-color: yellow;
@@ -24,29 +20,29 @@
       padding: 10px;
     }
   </style>
-  <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 </head>
 
 <body>
-  <h2>컴포넌트에 값을 전달</h2>
+  <h2>v-for 반복문: 배열에서 컴포넌트를 만들어 표시하는 예제</h2>
   <div id="app">
-    <my-component my-name="철수"></my-component>
-    <my-component my-name="영희"></my-component>
-    <my-component></my-component>
+    <my-component v-for="(item,index) in myArray" v-bind:my-name="item"></my-component>
   </div>
   <script>
     var MyComponent = {
-      template: '<p class="my-comp">나는 <span>{{myName}}</span>입니다.</p>',
+      template: '<p class="my-comp">나는 {{myName}}입니다.</p>',
       props: {
         myName: String
       },
       created: function () {
-        if (this.myName == null) this.myName = "무명"
+        if (this.myName == null) this.myName = "이름 없음"
       }
     }
     new Vue({
       el: '#app',
+      data: {
+        myArray: ['길동', '짱아', '짱구', '몰랑', '코난']
+      },
       components: {
         'my-component': MyComponent
       }
